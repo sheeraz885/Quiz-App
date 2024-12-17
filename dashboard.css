@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* text-align: center; */
+    background-color: #323232;
+    color: #f2f2f2;
+
+}
+
+/* Navbar */
+.navbar {
+    height: 60px;
+    background-color: #5cb9ff;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h3 {
+    color: #333333;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+#logoutBtn:hover {
+    color: #ffffff;
+}
+
+#logoutBtn {
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-left: 15px;
+    color: #323232;
+}
+
+
+/*Hero container*/
+.main-pannel{
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 90vh;
+    margin-top: 3%;
+}
+
+#Name{
+    font-size: 60px;
+    font-weight: 100;
+    color: rgba(242, 242, 242, 0.95);
+    padding-top: 5%;
+
+    
+}
+
+.line-bar{
+    height: 2px;
+    background-color: #054270;
+    width: 100%;
+}
+
+.quiz-selection{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.HTMLQuiz,.CSSQuiz,.JSQuiz{
+    height: 69% ;
+    width: 23%;
+    margin-top: 10px;
+    border: 1px solid #a49e9e;
+    padding: 10px;
+    transition: all 0.2s ease-out;
+    color: rgb(50, 50, 50);
+    background-color: #f2f2f2;
+    margin-right: 2%;
+    margin-left: 2%;
+    border-radius: 10px;
+}
+
+#tittle{
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+#para{
+    color: #084676;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.quiz-card-btn{
+    height: 25%;
+    width: 100%;
+    border: none;
+    border: 1px solid #807e7e;
+    border-radius: 3px;
+    background-color: #054270;
+    color: #f2f2f2;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+
+}
+
+.HTMLQuiz:hover,.CSSQuiz:hover,.JSQuiz:hover{
+    margin-top: -2%;
+    cursor: pointer;
+}
+
+
+.quiz-card-btn:hover{
+    background-color: #0056b3;
+    cursor: pointer;
+}
+.logout i{
+    position: relative;
+    top:-2px;
+}
+.logout i:hover{
+    cursor: pointer;
+}

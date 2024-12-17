@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <link rel="stylesheet" href="finish.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="result-title">Congratulations! You Passed the Exam </h1>
+        
+        <!-- Result Table -->
+        <table class="result-table">
+            <tr>
+                <td class="label">Total Questions:</td>
+                <td class="value" id="total-questions">10</td>
+            </tr>
+            <tr>
+                <td class="label">Correct Answers:</td>
+                <td class="value correct" id="correct-answers">9</td>
+            </tr>
+            <tr>
+                <td class="label">Wrong Answers:</td>
+                <td class="value wrong" id="wrong-answers">1</td>
+            </tr>
+        </table>
+
+        <!-- Circular Score -->
+        <div class="circle-score" id="score-percentage">90%</div>
+
+        <!-- Go Back to Home Button -->
+        <button class="home-btn" onclick="goToMain()">Go Back to Home</button>
+
+        <!-- Footer -->
+        <div class="footer">
+            Made with ❤️ by Your Sheeraz Ahmed
+        </div>
+    </div>
+
+    <script src="finish.js"></script>
+</body>
+</html>

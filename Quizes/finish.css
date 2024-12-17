@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Card */
+.container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px 40px;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h1 {
+    color: #2e7d32;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+.result-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.result-table td {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.result-table tr:not(:last-child) td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.result-table .label {
+    color: #555;
+    font-weight: 600;
+}
+
+.result-table .value {
+    text-align: right;
+    font-weight: 700;
+}
+
+.correct {
+    color: #4caf50;
+}
+
+.wrong {
+    color: #f44336;
+}
+
+/* Circular Score */
+.circle-score {
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    border: 6px solid #2e7d32;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    background: radial-gradient(circle, #e0f2f1 30%, transparent 60%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button */
+.home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #4caf50, #388e3c);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 10px rgba(76, 175, 80, 0.4);
+}
+
+.home-btn:hover {
+    background: linear-gradient(to right, #388e3c, #2e7d32);
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 15px rgba(76, 175, 80, 0.6);
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}

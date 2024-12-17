@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizEra</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h3>QuizErat</h3>
+        <div class="theme-buttons">
+            <button class="theme-btns" onclick="bgChange('white')" id="light-bg"><i class="fa-solid fa-sun"></i>
+            <button><i class="fa-solid fa-moon" onclick="bgChange('Dark Gray')"></i></button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Quiz Application</h1>
+        <h2>Saylani Mass IT Training Program</h2>
+        <p>Saylani Mass IT Training Program is a popular growing institute in Pakistan and now also working in Turkey.</p>
+        <p>Which provides every type of IT course free of cost.</p>
+
+        <div class="btn-container">
+            <h3>Start Exam</h3>
+            <a href="javascript:void(0)" class="btn" id="sign" onclick="openModal('sign')">Sign Up</a>
+            <a href="javascript:void(0)" class="btn" onclick="openModal('log')">Log In</a>
+        </div>
+    </div>
+
+     <!-- Sign In Modal -->
+     <div class="modal" id="myModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Student Registration Form</h2>
+                <button class="close-btn-log" onclick="closeModal('sign')">×</button>
+            </div>
+            <form onsubmit="saveData(event)">
+                <label>
+                    <i class="fa-solid fa-user"></i>Name
+                </label>
+                <input type="text" placeholder="Enter Your Full Name"  id="name">
+            
+                <label>
+                    <i class="fa-solid fa-envelope"></i>Email
+                </label>
+                <input type="email" placeholder="Enter your Email"  id="email">
+            
+                <label>
+                    <i class="fa-solid fa-lock"></i>Password
+                </label>
+                <input type="password" placeholder="Enter Password"  id="password">
+            
+                <button type="submit">Submit</button>
+            </form>
+            
+        </div>
+    </div>
+
+
+<!-- Sign In Modal -->
+
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="h2">Login Form</h2>
+            <button class="close-btn-log" onclick="closeModal('log')">×</button>
+        </div>
+        <form onsubmit="checkInfo(event)">
+            <!-- Email -->
+            <label>
+                <i class="fa-solid fa-envelope" ></i> Email Address
+            </label>
+            <input type="email" placeholder="Enter your Email" required id="log-email"><br>
+            <span id="errorName" ></span>
+
+            <!-- Password -->
+            <label>
+            </label>
+            <input type="password" placeholder="Enter your Password" required id="log-password"><br>
+            <span id="error" ></span>
+
+            <button type="submit" id="log-button">Login</button>
+        </form>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
