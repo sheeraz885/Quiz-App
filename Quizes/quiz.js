@@ -1,13 +1,3 @@
-let bgChange = (value) => {
-    let body = document.getElementsByTagName('body')[0];
-    if (value === 'white') {
-        body.style.backgroundColor = "#fff";
-        body.style.color = "#333333";
-    } else {
-        body.style.backgroundColor = "#333333";
-        body.style.color = "white";
-    }
-}
 
 //logout
 var logout = () =>{
@@ -144,12 +134,12 @@ var jsQuiz = [
          answer: "onclick" }
 ];
 
-// Retrieve selected quiz type from localStorage
+//get selected user quiz from local stoarge
 var selectedQuiz = localStorage.getItem('quizType');
 var quizData;
 var currentQuestionIndex = 0;
 
-// Set the quiz data based on the selected quiz type
+// conditions 
 if (selectedQuiz === 'html') {
     quizData = htmlQuiz;
 } else if (selectedQuiz === 'css') {
@@ -161,34 +151,54 @@ if (selectedQuiz === 'html') {
 // Function to render question and options
 function renderQuestion() {
     if (quizData && currentQuestionIndex < quizData.length) {
-        var question = quizData[currentQuestionIndex];
-        document.getElementById('question').innerText = question.question;
+        var quizObject = quizData[currentQuestionIndex];
+        document.getElementById('question').innerText = quizObject.question;
 
         var options = document.getElementById('options');
-        options.innerHTML = ''; // Clear previous options and create radio buttons
+        options.innerHTML = ''; 
 
-        for (var i = 0; i < question.options.length; i++) {
+        for (var i = 0; i < quizObject.options.length; i++) {
             var optionContainer = document.createElement('div');
 
             var optionInput = document.createElement('input');
             optionInput.type = 'radio';
             optionInput.name = 'quizOption';
             optionInput.id = 'option' + i;
-            optionInput.value = question.options[i];
+            optionInput.value = quizObject.options[i]
+           
 
             var optionLabel = document.createElement('label');
             optionLabel.setAttribute('for', 'option' + i);
-            optionLabel.innerText = question.options[i];
+            optionLabel.innerText = quizObject.options[i];
 
             optionContainer.appendChild(optionInput);
             optionContainer.appendChild(optionLabel);
-
             options.appendChild(optionContainer);
+           
         }
     } 
 }
 
+function TimeDisplay() {
+    let timeDiv = document.getElementById('time');
+    let timeRemaining = 300;
+
+    let timer = setInterval(() => {
+        if (timeRemaining <= 0) {
+            clearInterval(timer); 
+            endQuiz();
+        } else {
+            timeRemaining--;
+            let minutes = Math.floor(timeRemaining / 60);
+            let seconds = timeRemaining % 60;
+            timeDiv.innerText = `${minutes}:${seconds.toString().padStart(2, '0')}`; 
+        }
+    }, 1000);
+}
+
 let count = 0;
+
+//functions to check the answers
 
 function checkAnswer() {
     let options = document.getElementsByName('quizOption');
@@ -197,13 +207,15 @@ function checkAnswer() {
     for (let i = 0; i < options.length; i++) {
         if (options[i].checked) {
             selectedAnswer = options[i].value;
+            // console.log(selectedAnswer);
             break;
         }
     }
 
     if (selectedAnswer) {
         let correctAnswer = quizData[currentQuestionIndex].answer;
-        if (selectedAnswer.trim() === correctAnswer.trim()) {
+        // console.log(correctAnswer);
+        if (selectedAnswer === correctAnswer) {
             count++;
         }
 
@@ -212,23 +224,32 @@ function checkAnswer() {
         if (currentQuestionIndex < quizData.length) {
             renderQuestion();
         } else {
-            let totalQuestions = quizData.length;
-            let perc = Math.round((count / totalQuestions) * 100);
-            localStorage.setItem('finalScore', perc);
-            localStorage.setItem('totalQuestions', totalQuestions);
-            localStorage.setItem('correctAnswers', count);
-
-            console.log("Redirecting to finish page with score: " + perc);
-            window.location.replace("./finish.html");
+            endQuiz();
         }
+
     } else {
         alert("Please select an option.");
     }
 }
-// Next button to go to the next question
+
+//END QUiz Function 
+function endQuiz(){
+    let totalQuestions = quizData.length;
+            let perc = Math.round((count / totalQuestions) * 100);
+            localStorage.setItem('finalScore', perc);
+            localStorage.setItem('totalQuestions', totalQuestions);
+            localStorage.setItem('correctAnswers', count);
+            window.location.replace("./finish.html");
+
+}
+
+
+
+// Next button 
 document.getElementById('next-button').onclick = function () {
     checkAnswer();
 };
 
-// Initial render of the first question
+// render question of the first question & display timer
 renderQuestion();
+TimeDisplay();
